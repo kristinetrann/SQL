@@ -1,0 +1,25 @@
+CREATE TABLE art_supplies (id INTEGER, name TEXT, aisle INTEGER, price INTEGER);
+
+INSERT INTO art_supplies VALUES (1, "brushes", 4, 7.41);
+INSERT INTO art_supplies VALUES (2, "canvas", 12, 24.72);
+INSERT INTO art_supplies VALUES (3, "sketchbooks", 10, 8.50);
+INSERT INTO art_supplies VALUES (4, "paint", 7, 6.16 );
+INSERT INTO art_supplies VALUES (5, "clay", 9, 14.50);
+INSERT INTO art_supplies VALUES (6, "easle", 12, 79.36);
+INSERT INTO art_supplies VALUES (7, "mix media pad", 10, 12.59);
+INSERT INTO art_supplies VALUES (8, "drying rack", 11, 80.10);
+INSERT INTO art_supplies VALUES (9, "pens", 3, 3.11);
+INSERT INTO art_supplies VALUES (10, "inking plate", 6, 11.59);
+INSERT INTO art_supplies VALUES (11, "paper mache", 8, 6.70);
+INSERT INTO art_supplies VALUES (12, "erasers", 3, 1.50);
+INSERT INTO art_supplies VALUES (13, "spray paint", 6, 13.49);
+INSERT INTO art_supplies VALUES (14, "yarn", 2, 11.99);
+INSERT INTO art_supplies VALUES (15, "puzzles", 1, 23.35);
+INSERT INTO art_supplies VALUES (16, "gesso", 5, 8.71);
+INSERT INTO art_supplies VALUES (17, "frames", 13, 16.79);
+INSERT INTO art_supplies VALUES (18, "portfolios", 12, 21.62);
+INSERT INTO art_supplies VALUES (19, "exacto knife", 3, 5.03);
+INSERT INTO art_supplies VALUES (20, "storage box", 2, 14.99);
+
+SELECT * FROM art_supplies ORDER BY aisle;
+SELECT * FROM art_supplies ORDER BY price;
