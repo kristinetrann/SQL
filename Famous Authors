@@ -1,0 +1,35 @@
+/* Create table about the people and what they do here */
+
+CREATE TABLE author (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT,
+    book TEXT);
+    
+INSERT INTO author (fullname, book) VALUES ("David Levithan", "Everyday");
+INSERT INTO author (fullname, book) VALUES ("Michael Faudet", "Cult of Two");
+INSERT INTO author (fullname, book) VALUES ("Sarah Dessen", "Along for the Ride");
+INSERT INTO author (fullname, book) VALUES ("Beth O'Leary", "The Flat Share");
+INSERT INTO author (fullname, book) VALUES ("Jennifer Niven", "In All The Bright Places");
+INSERT INTO author (fullname, book) VALUES ("Kennedy Ryan", "Before I Let Go");
+INSERT INTO author (fullname, book) VALUES ("Josie Silver", "One Day in December");
+INSERT INTO author (fullname, book) VALUES ("Colleen Hoover", "It Ends With Us");
+
+CREATE TABLE career (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    author_id INTEGER,
+    genre TEXT,
+    first_published TEXT);
+
+ INSERT INTO career (author_id, genre, first_published) VALUES (1, "Young Adult Fiction", 2003);
+ INSERT INTO career (author_id, genre, first_published) VALUES (2, "Poetry", 2016);
+ INSERT INTO career (author_id, genre, first_published) VALUES (3, "Young Adult Fiction", 1996);
+ INSERT INTO career (author_id, genre, first_published) VALUES (4, "Romantic Comedy", 2019);
+ INSERT INTO career (author_id, genre, first_published) VALUES (5, "Young Adult Fiction", 2000);
+ INSERT INTO career (author_id, genre, first_published) VALUES (6, "Romance", 2014);
+ INSERT INTO career (author_id, genre, first_published) VALUES (7, "Romance", 2018);
+ INSERT INTO career (author_id, genre, first_published) VALUES (8, "Contemporary Romance", 2012);
+
+SELECT author.fullname, career.first_published
+FROM author
+JOIN career
+ON author.id=career.author_id;
