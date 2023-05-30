@@ -1,0 +1,66 @@
+# For this project, I downloaded Spotify data from Kaggle.
+# Then I created a table to insert Spotify data into.
+# Finally, I performed analytics on the data using SQL. 
+
+#Creating the table: 
+CREATE TABLE BIT_DB.Spotifydata (
+id integer PRIMARY KEY,
+artist_name varchar NOT NULL,
+track_name varchar NOT NULL,
+track_id varchar NOT NULL,
+popularity integer NOT NULL,
+danceability decimal(4,3) NOT NULL,
+energy decimal(4,3) NOT NULL,
+key integer NOT NULL,
+loudness decimal(5,3) NOT NULL,
+mode integer NOT NULL,
+speechiness decimal(5,4) NOT NULL,
+acousticness decimal(6,5) NOT NULL,
+instrumentalness text NOT NULL,
+liveness decimal(5,4) NOT NULL,
+valence decimal(4,3) NOT NULL,
+tempo decimal(6,3) NOT NULL,
+duration_ms integer NOT NULL,
+time_signature integer NOT NULL 
+)
+
+#Then I inserted the Spotify Data .csv into the table.
+
+#Next, I explored the data using the following SQL. 
+
+#First, I determined who the Top 10 artists are by popularity
+SELECT track_name, artist_name, popularity
+FROM BIT_DB.spotifydata
+ORDER BY popularity desc
+LIMIT 10;
+
+#Then I was curious to find out which artist and what track was not in the typical time signature
+SELECT artist_name, track_name, time_signature
+FROM BIT_DB.Spotifydata
+WHERE time_signature NOT IN (4);
+
+#I determined the avg tempo fo each track by artist and track 
+SELECT artist_name, track_name, avg(tempo)
+FROM BIT_DB.Spotifydata
+GROUP BY artist_name, track_name;
+
+#I used max and min to find the loudest and the softest tracks in the database
+SELECT artist_name, track_name, MAX(loudness)
+FROM BIT_DB.Spotifydata;
+
+SELECT artist_name, track_name, MIN(loudness)
+FROM BIT_DB.Spotifydata;
+
+#Then I determined to find the longest track by name and track
+SELECT artist_name, track_name, MAX(duration_ms)
+FROM BIT_DB.Spotifydata;
+
+#Then by using CASE to categorize the tracks by dancebility
+SELECT track_name, danceability,
+    CASE
+        WHEN danceability > 0.79 THEN "DANCE PARTY"
+        WHEN danceability > 0.69 THEN "GROOVING"
+        ELSE "CHILL"
+    END as "vibe"
+FROM BIT_DB.Spotifydata
+ORDER BY vibe;
