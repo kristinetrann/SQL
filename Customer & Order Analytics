@@ -71,7 +71,7 @@ FROM BIT_DB.FebSales
 WHERE Product like '%headphone%';
 GROUP BY Product;
 
-#11. What was the average amount spent per account in February? (Hints: For this question, we want the average amount spent / number of accounts, not the amount spent by each account. To multiply, you can use the * symbol, and to divide, you can use the / symbol.)
+#11. What was the average amount spent per account in February?
 SELECT sum(quantity*price)/count(cust.acctnum)
 FROM BIT_DB.FebSales Feb
 LEFT JOIN BIT_DB.customers cust
@@ -79,7 +79,7 @@ ON FEB.orderid=cust.order_id;
 WHERE length(orderid) = 6 
 AND orderid <> 'Order ID';
 
-#12. What was the average quantity of products purchased per account in February? (Hint: just like question 3, we want the overall average, not the average for each account individually).
+#12. What was the average quantity of products purchased per account in February?
 SELECT sum(quantity)/COUNT(cust.acctnum)
 FROM BIT_DB.FebSales Feb
 LEFT JOIN BIT_DB.customers cust
